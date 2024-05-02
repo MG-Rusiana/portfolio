@@ -1,23 +1,38 @@
 import { FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaPaperPlane, FaPhone} from 'react-icons/fa';
 import { Element } from 'react-scroll';
 import { Footer } from '../components/footer';
-import { useState } from 'react';
-import { FaCircleArrowRight } from 'react-icons/fa6';
+import { useEffect, useState } from 'react';
+import { FaRotateRight } from 'react-icons/fa6';
+
+import 'animate.css';
 
 export const Contact = () => {
 
     const [isLoading, setIsLoading] = useState(false)
+    const [warning, setWarning] = useState("")
+
+    const [data, setData] = useState({
+      name: "",
+      email: "",
+      message: ""
+    })
+
+    useEffect(()=>{
+      console.log(warning)
+    },[])
+
     return (
       <Element name="Contact" className=' w-full min-h-screen bg-bg flex flex-col items-center'>
         <div className='w-[80%] h-[100px] text-white flex flex-col mt-[120px]'>
           <h1 className='text-t1 text-[50px] md:text-center'>Contact Me</h1>
         </div>
 
-        <form method='POST' action='https://getform.io/f/warkpvkb' className='flex flex-col md:flex-row justify-center items-center w-[80%] text-white mb-20'
+        <form method='POST' action='https://getform.io/f/warkpvkb' className='flex flex-col md:flex-row justify-center items-center w-[80%] text-white mb-10'
           onSubmit={async (event:any) => {
             event.preventDefault();
             const formData = new FormData(event.target);
             setIsLoading(true)
+            setWarning("Hang tight, we're processing your message...")
             try {
               const response = await fetch(event.target.action, {
                 method: 'POST',
@@ -26,14 +41,21 @@ export const Contact = () => {
               if (response.ok) {
                 console.log('Form submitted successfully');
                 setIsLoading(false)
-                // You can add code here to handle successful form submission
+                setData({
+                  name: "",
+                  email: "",
+                  message: ""
+                })
+                setWarning("Your message has been successfully submitted. Thank you!")
               } else {
                 console.error('Form submission failed');
-                // You can add code here to handle errors
               }
             } catch (error) {
               console.error('Error submitting form:', error);
             }
+            setTimeout(()=>{
+              setWarning("")
+            }, 5000)
           }}
           >
           <div className=' w-[500px] md:w-[400px] flex flex-col justify-center md:items-center  p-5 '>
@@ -53,15 +75,51 @@ export const Contact = () => {
             </div>
           </div>
           <div className='flex flex-col justfy-start items-center gap-6 p-5 w-[500px] '>
-            <input className=' w-full border-[1px] rounded-md bg-bg  outline-none h-[60px] pl-3 px-5' type='text' placeholder='Name' name='name'/>
-            <input className=' w-full border-[1px] rounded-md bg-bg  outline-none h-[60px] pl-3' type='text' placeholder='Email' name='email'/>
-            <textarea className=' w-full border-[1px] rounded-md bg-bg  outline-none pl-3 text-start pt-3' rows={10} placeholder='Message' name='message' />
+            <input 
+              className=' w-full border-[1px] rounded-md bg-bg  outline-none h-[60px] pl-3 px-5' 
+              type='text' 
+              placeholder='Name' 
+              name='name' 
+              required
+              value={data.name}
+              onChange={(e:any)=> setData({...data, name:e.target.value})}
+            />
+            <input 
+              className=' w-full border-[1px] rounded-md bg-bg  outline-none h-[60px] pl-3' 
+              type='email' 
+              placeholder='Email' 
+              name='email' 
+              required
+              value={data.email}
+              onChange={(e:any)=>setData({...data, email:e.target.value})}
+            />
+            <textarea 
+              className=' w-full border-[1px] rounded-md bg-bg  outline-none pl-3 text-start pt-3' 
+              rows={10} 
+              placeholder='Message' 
+              name='message' 
+              required
+              value={data.message}
+              onChange={(e:any)=>setData({...data, message:e.target.value})}
+            />
             <div className='flex flex-row justify-center items-center gap-5 rounded-md w-[200px] h-[40px] bg-t1 text-bg hover:bg-opacity-80'>
-              <button className=' outline-none ' >Submit</button>
-              {isLoading 
-                ?<FaCircleArrowRight />
-                : <FaPaperPlane />
-              }
+              <button className=' outline-none w-full h-full flex justify-center items-center gap-3' > Submit
+                {isLoading 
+                  ?<FaRotateRight className='spin' style={{animation: "spin 2s linear infinite"}}  />
+                  : <FaPaperPlane />
+                }
+              </button>
+
+            </div>
+
+            <div 
+              className=
+              {warning.length !== 0 
+                ?'flex justify-center items-center text-white text-[16px] bg-[#575d5d] px-10 py-2 rounded-md shadow-md'
+                :'hidden'
+              }        
+            >
+              {warning}
             </div>
             
           </div>
