@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // import App from './App.tsx'
 import './index.css'
 import { Suspense, lazy } from "react";
@@ -12,13 +12,9 @@ const Home=lazy(() =>
 
 const router = createBrowserRouter([
 
+
   {
     path: "/portfolio",
-    element: <Navigate to="/portfolio/home" />,
-  },
-  
-  {
-    path: "/portfolio/home",
     element:  <>
     <Suspense >
       <Home />

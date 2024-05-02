@@ -7,6 +7,7 @@ import react from './../assets/img/react.png'
 import github from './../assets/img/github.png'
 import bitbucket from './../assets/img/bitbucket.png'
 import django from './../assets/img/django.png'
+import kaggle from './../assets/img/kaggle.png'
 // import bg from './../assets/img/about.webp'
 
 export const About = () => {
@@ -19,6 +20,7 @@ export const About = () => {
         {tech: "DJANGO", img: django},
         {tech: "GITHUB", img: github},
         {tech: "BITBUCKET", img: bitbucket},
+        {tech: "KAGGLE", img: kaggle},
     ]
     
     return (
