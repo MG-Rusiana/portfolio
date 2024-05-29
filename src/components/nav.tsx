@@ -15,6 +15,7 @@ export const Nav = () => {
         {nav: "Home"},
         {nav: "About"},
         {nav: "Projects"},
+        {nav: "Certificates"},
         {nav: "Contact"},
     ]
 
@@ -44,7 +45,7 @@ export const Nav = () => {
             <ul className={showMenu ? 'absolute top-[100px] right-0 w-[200px] h-[350px] bg-bg flex flex-col justify-center items-center gap-5 text-white shadow-md' : 'hidden'}>
                     {nav.map((e:any)=>(
 
-                        <li  className='hover:cursor-pointer hover:text-t1 hover:border-b-[1px] hover:border-t1 text-[35px]'><Link onClick={handleShowMenu} to={e.nav} smooth={true} duration={500}>{e.nav}</Link></li>
+                        <li  className='hover:cursor-pointer hover:text-t1 hover:border-b-[1px] hover:border-t1 text-[28px]'><Link onClick={handleShowMenu} to={e.nav} smooth={true} duration={500}>{e.nav}</Link></li>
                     ))}
             </ul>
 

@@ -1,5 +1,6 @@
 import { Nav } from "./components/nav"
 import { About } from "./screens/about"
+import { Certificates } from "./screens/certs/certs"
 import { Contact } from "./screens/contact"
 import { Home } from "./screens/home"
 import { Projects } from "./screens/projects"
@@ -14,6 +15,7 @@ function App() {
       <Home />
       <About />
       <Projects />
+      <Certificates />
       <Contact />
     </div>
   )

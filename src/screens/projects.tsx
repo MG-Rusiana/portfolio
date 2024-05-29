@@ -1,15 +1,16 @@
 import { Element } from 'react-scroll';
 import { useState } from 'react';
 
-import fb from './../assets/img/fb_copy.png'
-import yt from './../assets/img/yt_copy.png'
-import ga from './../assets/img/google_account_copy.png'
-import bt from './../assets/img/budgeterist.png'
-import tb from './../assets/img/taskBuddy.png'
-import is from './../assets/img/iShare.png'
-import ad from './../assets/img/miam.jpg'
-import ps from './../assets/img/poster.jpg'
-import cl from './../assets/img/collage.jpg'
+import fb from './../assets/img/webp/fb_copy.webp'
+import yt from './../assets/img/webp/yt_copy.webp'
+import ga from './../assets/img/webp/google_account_copy.webp'
+import bt from './../assets/img/webp/budgeterist.webp'
+import tb from './../assets/img/webp/taskBuddy.webp'
+import is from './../assets/img/webp/iShare.webp'
+import ad from './../assets/img/webp/miam.webp'
+import ps from './../assets/img/webp/poster.webp'
+import cl from './../assets/img/webp/collage.webp'
+import bk from './../assets/img/webp/bookmars_collage.webp'
 
 
 
@@ -35,6 +36,7 @@ export const Projects = () => {
       {name: "Advertisement", img: ad, link: "https://www.canva.com/design/DAEYE0UJq5M/0sUE2BRcRIZObI_7clFZ2A/view?utm_content=DAEYE0UJq5M&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
       {name: "Poster", img: ps, link: "https://www.canva.com/design/DAEcz1fGpl4/UInkqLcmNqBvh4uPGusq3w/view?utm_content=DAEcz1fGpl4&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
       {name: "Collage", img: cl, link: "https://www.canva.com/design/DAFcPo9DLcI/LL8Wjxqql__qJGsq8jkyNQ/view?utm_content=DAFcPo9DLcI&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
+      {name: "Bookmarks", img: bk, link: "https://www.canva.com/design/DAF0Mb01oKM/pblr7VPfYWNG8C_XdAI2jQ/view?utm_content=DAF0Mb01oKM&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
     ]
 
     const [isHovered, setIsHovered] = useState(Array(frontend.length).fill(false));
@@ -44,37 +46,37 @@ export const Projects = () => {
 
 
         <div className='w-[80%] text-white flex flex-col mt-[120px]'>
-            <h1 className='text-t1 text-[50px] text-center'>Projects</h1>
+            <h1 className='text-t1 text-[50px] text-center mb-5'>Projects</h1>
 
             <div className='w-full min-h-[300px] rounded-md bg-[#575d5d] bg-opacity-10 backdrop-filter shadow-md p-10 flex flex-col'>
 
-            <ul className='w-full h-[80px] flex justify-center items-center gap-5'>
-              <li className={`text-[25px] cursor-pointer ${showFrontEnd ? 'underline text-t1' : ''} `} onClick={()=>{
+            <ul className='w-full h-[80px] flex justify-center items-center gap-5 text-[25px] md:text-[20px] '>
+              <li className={` cursor-pointer ${showFrontEnd ? 'underline text-t1' : ''} `} onClick={()=>{
                 setShowFrontEnd(true)
                 setShowPrototype(false)
                 setShowGraphic(false)
               }}>Front End Designs</li>
-              <li className='text-[25px]'>|</li>
-              <li className={`text-[25px] cursor-pointer ${showPrototype ? 'underline text-t1' : ''} `} onClick={()=>{
+              <li>|</li>
+              <li className={` cursor-pointer ${showPrototype ? 'underline text-t1' : ''} `} onClick={()=>{
                 setShowFrontEnd(false)
                 setShowPrototype(true)
                 setShowGraphic(false)
               }}>Prototype Designs</li>
-              <li className='text-[25px]'>|</li>
-              <li className={`text-[25px] cursor-pointer ${showGraphic ? 'underline text-t1' : ''} `} onClick={()=>{
+              <li>|</li>
+              <li className={` cursor-pointer ${showGraphic ? 'underline text-t1' : ''} `} onClick={()=>{
                 setShowFrontEnd(false)
                 setShowPrototype(false)
                 setShowGraphic(true)
               }}>Graphic Designs</li>
             </ul>
 
-            <div className=' w-full h-full flex flex-wrap gap-10 justify-center items-center mt-[35px] '>
+            <div className=' w-full h-full flex flex-wrap gap-10 justify-center items-center mt-[35px]'>
 
               {showFrontEnd && (
                 <>
                   {frontend.map((e:any, index:number)=>(
-                    <div className='flex flex-col justify-center items-center p-5 rounded-md bg-[#575d5d] bg-opacity-30 backdrop-filter shadow-md gap-5'>
-                      <div className='w-[450px] h-[260px] relative ' 
+                    <div className='flex flex-col w-[500px] h-[350px] md:w-[400px] md:h-[250px] sm:w-[300px] sm:h-[150px] justify-center items-center px-5 rounded-md bg-[#575d5d] bg-opacity-30 backdrop-filter shadow-md gap-2'>
+                      <div className='w-full h-[75%] relative bg-white' 
                         onMouseEnter={() => {
                           const newIsHovered = [...isHovered];
                           newIsHovered[index] = true;
@@ -96,7 +98,7 @@ export const Projects = () => {
                           </a>
                       </div>
 
-                      <p className='text-[23px]'>{e.name}</p>
+                      <p className='text-[23px] sm:truncate'>{e.name}</p>
                     </div>
                   ))}
                 </>
@@ -105,8 +107,8 @@ export const Projects = () => {
               {showPrototype && (
                 <>
                   {prototype.map((e:any, index:number)=>(
-                    <div className='flex flex-col justify-center items-center p-5 rounded-md bg-[#575d5d] bg-opacity-30 backdrop-filter shadow-md gap-5'>
-                      <div className='w-[450px] h-[260px] relative ' 
+                    <div className='flex flex-col w-[500px] h-[350px] md:w-[400px] md:h-[250px] sm:w-[300px] sm:h-[150px] justify-center items-center px-5 rounded-md bg-[#575d5d] bg-opacity-30 backdrop-filter shadow-md gap-2'>
+                      <div className='w-full h-[75%] relative bg-white' 
                         onMouseEnter={() => {
                           const newIsHovered = [...isHovered];
                           newIsHovered[index] = true;
@@ -128,16 +130,17 @@ export const Projects = () => {
                           </a>
                       </div>
 
-                      <p className='text-[23px]'>{e.name}</p>
+                      <p className='text-[23px] sm:truncate'>{e.name}</p>
                     </div>
                   ))}
                 </>
-              )}  
+              )}
+
               {showGraphic && (
                 <>
                   {canva.map((e:any, index:number)=>(
-                    <div className='flex flex-col justify-center items-center p-5 rounded-md bg-[#575d5d] bg-opacity-30 backdrop-filter shadow-md gap-5'>
-                      <div className='w-[450px] h-[260px] relative ' 
+                    <div className='flex flex-col w-[500px] h-[350px] md:w-[400px] md:h-[250px] sm:w-[300px] sm:h-[150px] justify-center items-center px-5 rounded-md bg-[#575d5d] bg-opacity-30 backdrop-filter shadow-md gap-2'>
+                      <div className='w-full h-[75%] relative bg-white' 
                         onMouseEnter={() => {
                           const newIsHovered = [...isHovered];
                           newIsHovered[index] = true;
@@ -159,7 +162,7 @@ export const Projects = () => {
                           </a>
                       </div>
 
-                      <p className='text-[23px]'>{e.name}</p>
+                      <p className='text-[23px] sm:truncate'>{e.name}</p>
                     </div>
                   ))}
                 </>
