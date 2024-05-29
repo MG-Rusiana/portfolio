@@ -19,13 +19,11 @@ export const Nav = () => {
     ]
 
     return (
-        <div className="bg-bg fixed flex flex-row justify-between w-full h-[100px] items-center text-white px-10 backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-md">
+        <div className="bg-bg fixed flex flex-row justify-between w-full h-[100px] items-center text-white px-10 backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-md z-20">
             
-    
-            <img src={MG} style={{width: '80px'}} />
+            <Link className='cursor-pointer' to="Home" smooth={true} duration={500}><img src={MG} style={{width: '80px'}} /></Link>
             
-
-            <div className='hidden md:flex'>
+            <div className='md:hidden flex'>
                 <ul className=' flex flex-row text-3xl gap-5'>
                     {nav.map((e:any)=>(
 
@@ -34,7 +32,7 @@ export const Nav = () => {
                 </ul>
             </div>
 
-            <div className='flex md:hidden' onClick={handleShowMenu}>
+            <div className='md:flex hidden' onClick={handleShowMenu}>
                 {!showMenu 
                     ? <FaBars className='w-[25px] h-[25px] cursor-pointer hover:text-t1'/> 
                     : <FaXmark className='w-[30px] h-[30px] cursor-pointer hover:text-t1'/>
@@ -43,7 +41,7 @@ export const Nav = () => {
             </div>
 
             {/* menu */}
-            <ul className={showMenu ? ' absolute top-[100px] left-0 w-full h-screen bg-bg flex flex-col justify-center items-center gap-5 text-white' : 'hidden'}>
+            <ul className={showMenu ? 'absolute top-[100px] right-0 w-[200px] h-[350px] bg-bg flex flex-col justify-center items-center gap-5 text-white shadow-md' : 'hidden'}>
                     {nav.map((e:any)=>(
 
                         <li  className='hover:cursor-pointer hover:text-t1 hover:border-b-[1px] hover:border-t1 text-[35px]'><Link onClick={handleShowMenu} to={e.nav} smooth={true} duration={500}>{e.nav}</Link></li>

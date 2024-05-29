@@ -45,7 +45,7 @@ export const About = () => {
         >
             
             {tech.map((e:any)=>(
-                <div className=' bg-[#575d5d] shadow-md rounded-md lg:w-[20%] md:w-[30%] sm:w-[45%] w-[45%] flex flex-col justify-center items-center h-[220px] gap-3 backdrop-filter bg-opacity-30 hover:bg-[#1c1b19] cursor-pointer'>
+                <div className=' bg-[#575d5d] shadow-md rounded-md md:w-[35%] sm:w-[45%] w-[25%] flex flex-col justify-center items-center h-[220px] gap-3 backdrop-filter bg-opacity-30 hover:bg-[#1c1b19] cursor-pointer'>
                     <img src={e.img} style={{width: '100px'}} />
                     <p>{e.tech}</p>
                 </div>
