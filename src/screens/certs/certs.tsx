@@ -3,9 +3,13 @@ import { useState } from 'react';
 
 import p1 from './../../assets/img/webp/p1.webp'
 import p2 from '../../assets/img/webp/p2.webp'
+import c1 from './../../assets/img/webp/c1.webp'
+import c2 from '../../assets/img/webp/c2.webp'
 
 import pdf1 from './pdf/p1.pdf'
 import pdf2 from './pdf/p2.pdf'
+import pdf3 from './pdf/c1.pdf'
+import pdf4 from './pdf/c2.pdf'
 
 
 export const Certificates = () => {
@@ -13,11 +17,9 @@ export const Certificates = () => {
     const certs = [
       {name: "Python for Beginners", img: p1, link: pdf1},
       {name: "Intermediate Python", img: p2, link: pdf2},
+      {name: "CCNAv7: Introduction to Networks", img: c1, link: pdf3},
+      {name: "CCNAv7: Switching, Routing, and Wireless Essentials", img: c2, link: pdf4},
     ]
-
-    // const openPdfInNewTab = () => {
-    //   window.open(pdf, '_blank');
-    // };
 
     const [isHovered, setIsHovered] = useState(Array(certs.length).fill(false));
 
@@ -61,7 +63,7 @@ export const Certificates = () => {
                         </a>
                       </div>
 
-                      <p className='text-[23px] sm:truncate'>{e.name}</p>
+                      <p className='text-[23px] text-center sm:truncate'>{e.name}</p>
                     </div>
                   ))}
 
