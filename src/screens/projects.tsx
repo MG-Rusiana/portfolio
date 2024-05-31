@@ -7,6 +7,7 @@ import ga from './../assets/img/webp/google_account_copy.webp'
 import bt from './../assets/img/webp/budgeterist.webp'
 import tb from './../assets/img/webp/taskBuddy.webp'
 import is from './../assets/img/webp/iShare.webp'
+import pb from './../assets/img/webp/Playbook.webp'
 import ad from './../assets/img/webp/miam.webp'
 import ps from './../assets/img/webp/poster.webp'
 import cl from './../assets/img/webp/collage.webp'
@@ -33,13 +34,16 @@ export const Projects = () => {
     ]
 
     const canva = [
+      {name: "Playbook", img: pb, link: "https://www.canva.com/design/DAGGk5VsHdI/o8n0k8Kt7XT9p5KNE8DBig/watch?utm_content=DAGGk5VsHdI&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
       {name: "Advertisement", img: ad, link: "https://www.canva.com/design/DAEYE0UJq5M/0sUE2BRcRIZObI_7clFZ2A/view?utm_content=DAEYE0UJq5M&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
       {name: "Poster", img: ps, link: "https://www.canva.com/design/DAEcz1fGpl4/UInkqLcmNqBvh4uPGusq3w/view?utm_content=DAEcz1fGpl4&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
       {name: "Collage", img: cl, link: "https://www.canva.com/design/DAFcPo9DLcI/LL8Wjxqql__qJGsq8jkyNQ/view?utm_content=DAFcPo9DLcI&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
       {name: "Bookmarks", img: bk, link: "https://www.canva.com/design/DAF0Mb01oKM/pblr7VPfYWNG8C_XdAI2jQ/view?utm_content=DAF0Mb01oKM&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
     ]
 
-    const [isHovered, setIsHovered] = useState(Array(frontend.length).fill(false));
+    const [isHoveredFE, setIsHoveredFE] = useState(Array(frontend.length).fill(false));
+    const [isHoveredPD, setIsHoveredPD] = useState(Array(prototype.length).fill(false));
+    const [isHoveredCD, setIsHoveredCD] = useState(Array(canva.length).fill(false));
 
     return (
       <Element name="Projects" className=' w-full min-h-screen bg-bg flex flex-col items-center '>
@@ -67,7 +71,7 @@ export const Projects = () => {
                 setShowFrontEnd(false)
                 setShowPrototype(false)
                 setShowGraphic(true)
-              }}>Graphic Designs</li>
+              }}>Canva Designs</li>
             </ul>
 
             <div className=' w-full h-full flex flex-wrap gap-10 justify-center items-center mt-[35px]'>
@@ -78,20 +82,20 @@ export const Projects = () => {
                     <div className='flex flex-col w-[500px] h-[350px] md:w-[400px] md:h-[250px] sm:w-[300px] sm:h-[150px] justify-center items-center px-5 rounded-md bg-[#575d5d] bg-opacity-30 backdrop-filter shadow-md gap-2'>
                       <div className='w-full h-[75%] relative bg-white' 
                         onMouseEnter={() => {
-                          const newIsHovered = [...isHovered];
+                          const newIsHovered = [...isHoveredFE];
                           newIsHovered[index] = true;
-                          setIsHovered(newIsHovered);
+                          setIsHoveredFE(newIsHovered);
                         }}
                         onMouseLeave={() => {
-                          const newIsHovered = [...isHovered];
+                          const newIsHovered = [...isHoveredFE];
                           newIsHovered[index] = false;
-                          setIsHovered(newIsHovered);
+                          setIsHoveredFE(newIsHovered);
                         }}
                       >
                         <img src={e.img} className='w-full h-full hoverEffect z-10' style={{objectFit:"cover", backgroundPosition: 'center',}} />
                         <a href={e.link} target="_blank" rel="noopener noreferrer"><button 
                           className={
-                            isHovered[index]
+                            isHoveredFE[index]
                               ? 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg text-white w-[140px] h-[40px] rounded-md'
                               : 'hidden'
                             }>Go to Website</button>
@@ -110,20 +114,20 @@ export const Projects = () => {
                     <div className='flex flex-col w-[500px] h-[350px] md:w-[400px] md:h-[250px] sm:w-[300px] sm:h-[150px] justify-center items-center px-5 rounded-md bg-[#575d5d] bg-opacity-30 backdrop-filter shadow-md gap-2'>
                       <div className='w-full h-[75%] relative bg-white' 
                         onMouseEnter={() => {
-                          const newIsHovered = [...isHovered];
+                          const newIsHovered = [...isHoveredPD];
                           newIsHovered[index] = true;
-                          setIsHovered(newIsHovered);
+                          setIsHoveredPD(newIsHovered);
                         }}
                         onMouseLeave={() => {
-                          const newIsHovered = [...isHovered];
+                          const newIsHovered = [...isHoveredPD];
                           newIsHovered[index] = false;
-                          setIsHovered(newIsHovered);
+                          setIsHoveredPD(newIsHovered);
                         }}
                       >
                         <img src={e.img} className='w-full h-full hoverEffect z-10' style={{objectFit:"cover", backgroundPosition: 'center',}} />
                         <a href={e.link} target="_blank" rel="noopener noreferrer"><button 
                           className={
-                            isHovered[index]
+                            isHoveredPD[index]
                               ? 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg text-white w-[140px] h-[40px] rounded-md'
                               : 'hidden'
                             }>Go to Figma</button>
@@ -142,20 +146,20 @@ export const Projects = () => {
                     <div className='flex flex-col w-[500px] h-[350px] md:w-[400px] md:h-[250px] sm:w-[300px] sm:h-[150px] justify-center items-center px-5 rounded-md bg-[#575d5d] bg-opacity-30 backdrop-filter shadow-md gap-2'>
                       <div className='w-full h-[75%] relative bg-white' 
                         onMouseEnter={() => {
-                          const newIsHovered = [...isHovered];
+                          const newIsHovered = [...isHoveredCD];
                           newIsHovered[index] = true;
-                          setIsHovered(newIsHovered);
+                          setIsHoveredCD(newIsHovered);
                         }}
                         onMouseLeave={() => {
-                          const newIsHovered = [...isHovered];
+                          const newIsHovered = [...isHoveredCD];
                           newIsHovered[index] = false;
-                          setIsHovered(newIsHovered);
+                          setIsHoveredCD(newIsHovered);
                         }}
                       >
                         <img src={e.img} className='w-full h-full hoverEffect z-10' style={{objectFit:"cover", backgroundPosition: 'center',}} />
                         <a href={e.link} target="_blank" rel="noopener noreferrer"><button 
                           className={
-                            isHovered[index]
+                            isHoveredCD[index]
                               ? 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg text-white w-[140px] h-[40px] rounded-md'
                               : 'hidden'
                             }>Go to Canva</button>
