@@ -34,7 +34,7 @@ export const Projects = () => {
     ]
 
     const canva = [
-      {name: "Playbook", img: pb, link: "https://www.canva.com/design/DAGGk5VsHdI/o8n0k8Kt7XT9p5KNE8DBig/watch?utm_content=DAGGk5VsHdI&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
+      {name: "Playbook", img: pb, link: "https://www.canva.com/design/DAGGjpxjLr4/rg1SLPbM-rurdJBs1cDngw/view?utm_content=DAGGjpxjLr4&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
       {name: "Advertisement", img: ad, link: "https://www.canva.com/design/DAEYE0UJq5M/0sUE2BRcRIZObI_7clFZ2A/view?utm_content=DAEYE0UJq5M&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
       {name: "Poster", img: ps, link: "https://www.canva.com/design/DAEcz1fGpl4/UInkqLcmNqBvh4uPGusq3w/view?utm_content=DAEcz1fGpl4&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
       {name: "Collage", img: cl, link: "https://www.canva.com/design/DAFcPo9DLcI/LL8Wjxqql__qJGsq8jkyNQ/view?utm_content=DAFcPo9DLcI&utm_campaign=designshare&utm_medium=link&utm_source=editor"},
